@@ -1,6 +1,6 @@
-export default { title: 'Counters' }
+export default { title: 'views/Home/Desktop' }
 
-import CountersStory from '../src/Counters.elm';
+import Normal from './Normal.elm';
 
 export const elm = () => {
  const container = document.createElement('div');
