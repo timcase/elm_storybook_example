@@ -4,12 +4,12 @@ import Article.Feed as Feed
 import Article.Tag as Tag exposing (Tag)
 import Browser
 import Browser.Navigation as Nav
+import FakeSession
 import Html exposing (..)
 import Html.Attributes exposing (..)
 import Html.Events exposing (onClick)
 import Main exposing (Model(..))
 import Page.Home as Home exposing (FeedTab(..), Model, Status(..))
-import Session exposing (Session(..))
 import Time
 import Url
 
@@ -52,7 +52,7 @@ mainModel navKey =
 
 homeModel : Nav.Key -> Home.Model
 homeModel navKey =
-    { session = Guest navKey
+    { session = FakeSession.guest navKey
     , timeZone = Time.utc
     , feedTab = GlobalFeed
     , feedPage = 1
