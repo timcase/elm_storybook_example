@@ -63,8 +63,18 @@ homeModel navKey =
 
 view : Model -> Browser.Document Msg
 view model =
-    { title = "title"
-    , body = [ div [] [ text "made it here" ] ]
+    let
+        hm =
+            homeModel model.key
+
+        { title, body } =
+            Main.view (Home hm)
+
+        vf =
+            div [] body
+    in
+    { title = "Home - Desktop"
+    , body = [ Html.map HomeMsg vf ]
     }
 
 
