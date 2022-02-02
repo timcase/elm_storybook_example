@@ -1,14 +1,20 @@
 export default { title: 'views/Home/Desktop' }
 
+import LoadingSlowly from './LoadingSlowly.elm';
 import Normal from './Normal.elm';
+import Failed from './Failed.elm';
 
 export const normal = () => {
- const container = document.createElement('div');
- const elmContainer = document.createElement('div');
- container.appendChild(elmContainer);
- const app = Normal.Elm.Story.Home.init({
-   node: elmContainer,
-   flags: 5
- })
- return container;
+ const app = Normal.Elm.Story.Home.Normal.init();
+ return document.createElement('div');
+};
+
+export const loadingSlowly = () => {
+ const app = LoadingSlowly.Elm.Story.Home.LoadingSlowly.init();
+ return document.createElement('div');
+};
+
+export const failed = () => {
+ const app = Failed.Elm.Story.Home.Failed.init();
+ return document.createElement('div');
 };

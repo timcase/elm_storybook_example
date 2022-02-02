@@ -1,12 +1,10 @@
-module Story.Home.Normal exposing (main)
+module Story.Home.LoadingSlowly exposing (main)
 
 import Article.Feed as Feed
 import Article.Tag as Tag exposing (Tag)
 import Browser
 import Browser.Navigation as Nav
-import FakeFeed
 import FakeSession
-import FakeTag
 import Html exposing (..)
 import Html.Attributes exposing (..)
 import Html.Events exposing (onClick)
@@ -58,8 +56,8 @@ homeModel navKey =
     , timeZone = Time.utc
     , feedTab = GlobalFeed
     , feedPage = 1
-    , tags = Loaded FakeTag.stubList
-    , feed = Loaded (FakeFeed.stub navKey)
+    , tags = LoadingSlowly
+    , feed = LoadingSlowly
     }
 
 
