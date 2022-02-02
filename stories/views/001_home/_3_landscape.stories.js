@@ -1,4 +1,12 @@
-export default { title: 'views/Home/Desktop' }
+export default {
+  title: 'views/Home/Landscape',
+  parameters: {
+    viewport: {
+      defaultViewport: 'landscape'
+    }
+  }
+}
+
 
 import Normal from './Normal.elm';
 
