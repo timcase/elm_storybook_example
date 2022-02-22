@@ -1,7 +1,7 @@
 module FakeTag exposing (stubList)
 
-import Article.Tag as Tag exposing (Tag, decoder)
-import Json.Decode as Decode exposing (Decoder, decodeString)
+import Article.Tag exposing (Tag, decoder)
+import Json.Decode as Decode exposing (decodeString)
 
 
 stubList : List Tag

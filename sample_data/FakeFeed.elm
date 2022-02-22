@@ -4,7 +4,7 @@ import Article exposing (Article, Preview)
 import Article.Feed as Feed
 import Browser.Navigation as Nav
 import FakeSession exposing (guest)
-import Json.Decode as Decode exposing (Decoder, decodeString)
+import Json.Decode exposing (decodeString)
 import PaginatedList exposing (PaginatedList)
 
 

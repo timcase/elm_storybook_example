@@ -1,7 +1,5 @@
 module Story.Home.Normal exposing (main)
 
-import Article.Feed as Feed
-import Article.Tag as Tag exposing (Tag)
 import Browser
 import Browser.Navigation as Nav
 import FakeFeed
@@ -9,15 +7,10 @@ import FakeSession
 import FakeTag
 import Html exposing (..)
 import Html.Attributes exposing (..)
-import Html.Events exposing (onClick)
 import Main exposing (Model(..))
 import Page.Home as Home exposing (FeedTab(..), Model, Status(..))
 import Time
 import Url
-
-
-
--- VIEW
 
 
 type Msg
@@ -33,10 +26,10 @@ update msg model =
         NoOp ->
             ( model, Cmd.none )
 
-        LinkClicked urlRequest ->
+        LinkClicked _ ->
             ( model, Cmd.none )
 
-        UrlChanged url ->
+        UrlChanged _ ->
             ( model, Cmd.none )
 
         HomeMsg _ ->
@@ -45,11 +38,6 @@ update msg model =
 
 type alias Model =
     { key : Nav.Key }
-
-
-mainModel : Nav.Key -> Main.Model
-mainModel navKey =
-    Home (homeModel navKey)
 
 
 homeModel : Nav.Key -> Home.Model
@@ -69,7 +57,7 @@ view model =
         hm =
             homeModel model.key
 
-        { title, body } =
+        { body } =
             Main.view (Home hm)
 
         vf =
@@ -90,10 +78,6 @@ main =
         , onUrlChange = UrlChanged
         , onUrlRequest = LinkClicked
         }
-
-
-
--- MODEL
 
 
 init : () -> Url.Url -> Nav.Key -> ( Model, Cmd Msg )
