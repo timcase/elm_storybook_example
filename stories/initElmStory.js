@@ -8,10 +8,10 @@
 // 3. Clone the body with Elm.
 // 4. Reinstate the original body that we cloned.
 // 5. Append Elm clone to div#root.
-export const init = (elmApp) => {
+export const initElmStory = (elmApp, state) => {
   const body = document.querySelector('body')
   const originalCopy = body.cloneNode(true);
-  const app = elmApp.init();
+  const app = elmApp.init({flags: state});
   const withElmCopy = body.cloneNode(true);
   body.parentNode.replaceChild(originalCopy, body);
   const rootDiv = document.querySelector('#root');
